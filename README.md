@@ -1,65 +1,67 @@
-# mail2sms-atomix
-mail2sms-atomix, WordPress’ten giden e-postaları (WP Mail / SMTP üzerinden de olsa) filtreler, içerikteki telefon numarasını bulursa mesajı sadeleştirip Netgsm üzerinden SMS olarak iletir. Böylece Amelia gibi eklentilerin e-posta bildirimleri otomatik SMS’e dönüştürülebilir.
-🇹🇷 Amaç
 
-mail2sms-atomix, WordPress’ten giden e-postaları (WP Mail / SMTP üzerinden de olsa) filtreler, içerikteki telefon numarasını bulursa mesajı sadeleştirip Netgsm üzerinden SMS olarak iletir. Böylece Amelia gibi eklentilerin e-posta bildirimleri otomatik SMS’e dönüştürülebilir.
+```md
+# Mail → SMS Bridge (for Amelia)
+**Developer:** Atakan Özdal  
+**License:** MIT  
 
-🇬🇧 Purpose
+WordPress üzerinden gönderilen e-postaları dinler.  
+Eğer mesaj içinde **telefon numarası** bulunursa → Netgsm SMS gönderir.  
+Amelia’nın mail bildirimlerini SMS’e dönüştüren köprü çözümüdür ✅
 
-mail2sms-atomix filters outgoing WordPress emails (even with SMTP plugins). If a Turkish phone number is detected in subject/body, it sends a compacted text as SMS via Netgsm. Perfect to mirror Amelia’s email notifications as SMS.
+---
 
-✨ Özellikler / Features
+## 🇹🇷 Özellikler
+✅ wp_mail() filtresi ile otomatik tetikleme  
+✅ Telefon no ayrıştırma (Regex)  
+✅ HTML → Plain text dönüşümü  
+✅ 1000 karakter limit  
+✅ Debug log desteği  
 
-wp_mail filtrelemesi (SMTP ile uyumlu)
+---
 
-TR telefon deseni ayrıştırma + normalize (90XXXXXXXXXX)
+## ⚙️ Kurulum (TR)
 
-Uzun HTML mail → sade metne indirgeme
+1. ZIP yükleyin → Etkinleştirin  
+2. Ayarlar → Mail → SMS Bridge  
+3. Netgsm bilgilerini girin  
+4. Amelia’dan test randevusu oluşturun  
+🟢 Mail gönderiliyorsa → SMS de gönderilir
 
-Admin’de Netgsm ayarları + deneme gönderim
+---
 
-Ayrıntılı debug.log
+## 📞 Desteklenen telefon numarası formatları
+0 5XX XXX XX XX
+5XX XXX XX XX
++90 5XX XXX XX XX
+90 5XX XXX XX XX
 
-🚀 Kurulum / Installation
 
-ZIP olarak kur: mail2sms-atomix.zip → Etkinleştir
+---
 
-Ayarlar → Mail → SMS Bridge sayfasından Netgsm bilgilerini gir
+## 🇬🇧 English Quick Guide
+1. Install & activate plugin  
+2. Configure:
 
-Amelia (veya başka eklenti) e-postası telefon numarasını içeriyorsa SMS tetiklenir
+Settings → Mail → SMS Bridge
 
-İpuçu: Mail şablonuna şunu ekleyebilirsin:
-<!-- PHONE: 05XXXXXXXXX -->
-(Telefon görünmüyorsa bile eklenti bu ipucunu yakalar.)
+3. Any outgoing email containing a Turkish phone number → SMS sent ✅
 
-🔎 Telefon Ayrıştırma / Phone Extraction
+---
 
-Regex: (\+?90|0)?\s*5\d{2}\s*\d{3}\s*\d{2}\s*\d{2}
+## 🔍 Debug Log
 
-Bulunan değerler 90XXXXXXXXXX formatına normalize edilir
+/wp-content/debug.log
 
-Mesaj HTML ise strip_tags ile metne indirgenir, uzunluk sınırlandırılır
 
-🧪 Test / Testing
+---
 
-Ayarlar sayfasındaki Hızlı Test ile SMS gönder
+## 📌 Changelog
+| Version | Notes |
+|--------|------|
+| 1.0.0 | First release |
+| 1.1.0 | Regex optimization & debug clarity |
 
-Kendine test maili atıp konu/gövdeye telefon ekle
+---
 
-⚠️ Dikkat / Caveats
-
-Eğer e-postada telefon yoksa SMS tetiklenmez
-
-Bazı SMTP/antispam eklentileri wp_mail filtresini farklı sırada çalıştırabilir; bu durumda priority artırılabilir
-
-Çok uzun HTML e-postalar kısaltılır
-
-🧾 Sürüm Notları / Changelog
-
-v1.0.0: İlk sürüm — Email→SMS köprüsü, panel ayarları, test, debug
-
-v1.1.0: Regex ve normalize iyileştirmeleri, karakter seti seçenekleri
-
-📄 Lisans / License
-
-MIT — ayrıntı için LICENSE dosyasına bakın.
+## 📄 License
+MIT — © 2025 Atakan Özdal
