@@ -1,5 +1,7 @@
 # Mail → SMS (Atomix)
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24462802.svg)](https://doi.org/10.5281/zenodo.24462802)
+
 [English](#english) · [Türkçe](#türkçe)
 
 ## English
