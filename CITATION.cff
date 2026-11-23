@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "mail2sms-atomix: WordPress email-to-SMS plugin for Netgsm"
+type: software
+authors:
+  - family-names: "Özdal"
+    given-names: "Atakan"
+    orcid: "https://orcid.org/0009-0008-1045-5486"
+    affiliation: "atomiXbilişim"
+version: 1.0.1
+date-released: 2026-11-23
+repository-code: "https://github.com/atakanozdal/mail2sms-atomix"
+keywords:
+  - wordpress
+  - sms
+  - netgsm
+abstract: "WordPress plugin that finds a Turkish mobile number in outgoing notification emails and sends the message as an SMS through Netgsm. Password reset and account security mails are skipped."
